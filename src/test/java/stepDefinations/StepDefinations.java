@@ -13,7 +13,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
-import resources.TestDataSetup;
+import resources.TestDataBuild;
 import resources.Utils;
 
 public class StepDefinations extends Utils {
@@ -21,7 +21,7 @@ public class StepDefinations extends Utils {
 	RequestSpecification res;
 	ResponseSpecification resp;
 	Response response;
-	TestDataSetup dataSetup = new TestDataSetup();
+	TestDataBuild dataSetup = new TestDataBuild();
 
 	@Given("Add Place Payload")
 	public void add_place_payload() {

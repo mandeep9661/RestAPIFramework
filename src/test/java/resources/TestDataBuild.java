@@ -6,7 +6,7 @@ import java.util.List;
 import pojo.Location;
 import pojo.SetPlace;
 
-public class TestDataSetup {
+public class TestDataBuild {
 	
 	public SetPlace addPlacePayload() {
 		
