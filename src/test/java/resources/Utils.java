@@ -10,31 +10,40 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class Utils {
-	
-	RequestSpecification reqSpecification;
-	
+
+	public static RequestSpecification reqSpecification;
+
 	public RequestSpecification requestSpecification() throws IOException {
-		
-		PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
-		
-		reqSpecification = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl"))
-				.addQueryParam("key", "qaclick123")
-				.addFilter(RequestLoggingFilter.logRequestTo(log))
-				.addFilter(ResponseLoggingFilter.logResponseTo(log))
-				.setContentType(ContentType.JSON).build();
+		if (reqSpecification == null) {
+			PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
+
+			reqSpecification = new RequestSpecBuilder().setBaseUri(getGlobalValue("baseUrl"))
+					.addQueryParam("key", "qaclick123").addFilter(RequestLoggingFilter.logRequestTo(log))
+					.addFilter(ResponseLoggingFilter.logResponseTo(log)).setContentType(ContentType.JSON).build();
+			return reqSpecification;
+		}
 		return reqSpecification;
-		
+
 	}
-	
+
 	public static String getGlobalValue(String key) throws IOException {
-		
+
 		Properties properties = new Properties();
-		FileInputStream inputStream = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\java\\resources\\global.properties");
+		FileInputStream inputStream = new FileInputStream(
+				System.getProperty("user.dir") + "\\src\\test\\java\\resources\\global.properties");
 		properties.load(inputStream);
 		return properties.getProperty(key);
+	}
+	
+	public String getJsonPath(Response response, String key) {
+		String resp = response.asString();
+		JsonPath jsonPath = new JsonPath(resp);
+		return jsonPath.get(key).toString();
 	}
 
 }

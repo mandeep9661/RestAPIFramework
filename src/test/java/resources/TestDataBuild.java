@@ -3,6 +3,7 @@ package resources;
 import java.util.ArrayList;
 import java.util.List;
 
+import pojo.DeletePlace;
 import pojo.Location;
 import pojo.SetPlace;
 
@@ -26,6 +27,12 @@ public class TestDataBuild {
 		location.setLng(33.427362);
 		place.setLocation(location);
 		return place;
+	}
+	
+	public DeletePlace deletePlacePayload(String place_id) {
+		DeletePlace deletePlace = new DeletePlace();
+		deletePlace.setPlace_id(place_id);
+		return deletePlace;
 	}
 
 }
