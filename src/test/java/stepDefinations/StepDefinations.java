@@ -2,6 +2,8 @@ package stepDefinations;
 
 import static io.restassured.RestAssured.given;
 
+import java.io.IOException;
+
 import org.junit.Assert;
 
 import io.cucumber.java.en.Given;
@@ -23,17 +25,16 @@ public class StepDefinations extends Utils {
 	Response response;
 	TestDataBuild dataSetup = new TestDataBuild();
 
-	@Given("Add Place Payload")
-	public void add_place_payload() {
-		
-		resp = new ResponseSpecBuilder().expectContentType(ContentType.JSON).expectStatusCode(200).build();
+	@Given("Add Place Payload with {string} {string} {string}")
+	public void add_place_payload_with(String name, String language, String address) throws IOException {
 
-		res = given().spec(requestSpecification()).body(dataSetup.addPlacePayload());
+		res = given().spec(requestSpecification()).body(dataSetup.addPlacePayload(name, language, address));
 	}
 
 	@When("user calls {string} with Post http request")
 	public void user_calls_with_post_http_request(String string) {
 		
+		resp = new ResponseSpecBuilder().expectContentType(ContentType.JSON).expectStatusCode(200).build();
 		response = res.when().post("/maps/api/place/add/json").then().spec(resp).extract().response();
 	}
 

@@ -8,15 +8,15 @@ import pojo.SetPlace;
 
 public class TestDataBuild {
 	
-	public SetPlace addPlacePayload() {
+	public SetPlace addPlacePayload(String name, String language, String address) {
 		
 		SetPlace place = new SetPlace();
 		place.setAccuracy(50);
-		place.setName("Mandeep House");
+		place.setName(name);
 		place.setPhone_number("(+91) 983 893 3937");
-		place.setAddress("29, side layout, cohen 09");
+		place.setAddress(language);
 		place.setWebsite("http://googleIn.com");
-		place.setLanguage("Hindi");
+		place.setLanguage(address);
 		List<String> list = new ArrayList<String>();
 		list.add("shoe park");
 		list.add("shop");
