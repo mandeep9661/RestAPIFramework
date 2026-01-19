@@ -27,7 +27,7 @@ Body:
     "website": "http://googleIn.com"
 }
 HTTP/1.1 200 OK
-Date: Sat, 17 Jan 2026 04:42:26 GMT
+Date: Mon, 19 Jan 2026 02:22:15 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -40,17 +40,17 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "b551f2e175e7791d5e4b1900bfc83850",
+    "place_id": "29ba24182a4b6223284fe92824ab0497",
     "scope": "APP",
-    "reference": "f06e4af183c9b5c90afb1d893b48bc55f06e4af183c9b5c90afb1d893b48bc55",
-    "id": "f06e4af183c9b5c90afb1d893b48bc55"
+    "reference": "c779d1cb3515bf2581fa3c52433e5f50c779d1cb3515bf2581fa3c52433e5f50",
+    "id": "c779d1cb3515bf2581fa3c52433e5f50"
 }
 Request method:	GET
-Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=b551f2e175e7791d5e4b1900bfc83850
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=29ba24182a4b6223284fe92824ab0497
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
-				place_id=b551f2e175e7791d5e4b1900bfc83850
+				place_id=29ba24182a4b6223284fe92824ab0497
 Form params:	<none>
 Path params:	<none>
 Headers:		Accept=*/*
@@ -59,7 +59,7 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:			<none>
 HTTP/1.1 200 OK
-Date: Sat, 17 Jan 2026 04:42:26 GMT
+Date: Mon, 19 Jan 2026 02:22:16 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: POST
@@ -82,34 +82,4 @@ Content-Type: application/json;charset=UTF-8
     "types": "shoe park,shop",
     "website": "http://googleIn.com",
     "language": "Noida Gaur City 2"
-}
-Request method:	GET
-Request URI:	https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123
-Proxy:			<none>
-Request params:	<none>
-Query params:	key=qaclick123
-Form params:	<none>
-Path params:	<none>
-Headers:		Accept=*/*
-				Content-Type=application/json
-Cookies:		<none>
-Multiparts:		<none>
-Body:
-{
-    "place_id": "b551f2e175e7791d5e4b1900bfc83850"
-}
-HTTP/1.1 200 OK
-Date: Sat, 17 Jan 2026 04:42:29 GMT
-Server: Apache/2.4.52 (Ubuntu)
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: POST
-Access-Control-Max-Age: 3600
-Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
-Content-Length: 15
-Keep-Alive: timeout=5, max=100
-Connection: Keep-Alive
-Content-Type: application/json;charset=UTF-8
-
-{
-    "status": "OK"
 }

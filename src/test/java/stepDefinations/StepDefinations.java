@@ -26,7 +26,7 @@ public class StepDefinations extends Utils {
 	Response response;
 	TestDataBuild dataSetup = new TestDataBuild();
 	JsonPath jsonPath;
-	String place_id;
+	static String place_id;
 
 	@Given("Add Place Payload with {string} {string} {string}")
 	public void add_place_payload_with(String name, String language, String address) throws IOException {
@@ -45,10 +45,7 @@ public class StepDefinations extends Utils {
 			response = res.when().post(resourseAPI.getResourse());
 		} else if (method.equalsIgnoreCase("GET")) {
 			response = res.when().get(resourseAPI.getResourse());
-		} else if (method.equalsIgnoreCase("DELETE")) {
-			response = res.when().get(resourseAPI.getResourse());
 		}
-
 	}
 
 	@Then("the API call got success with status code {int}")
@@ -74,14 +71,11 @@ public class StepDefinations extends Utils {
 		String actualName = getJsonPath(response, "name");
 		Assert.assertEquals(actualName, expectedName);
 	}
-
-	@Then("delete the addPlace using {string}")
-	public void delete_the_add_place_using(String resource) throws IOException {
+	
+	@Given("DeletePlace Payload")
+	public void delete_place_payload() throws IOException {
 
 		res = given().spec(requestSpecification()).body(dataSetup.deletePlacePayload(place_id));
-		user_calls_with_http_request(resource, "DELETE");
-		String actualName = getJsonPath(response, "status");
-		Assert.assertEquals(actualName, "OK");
 
 	}
 
